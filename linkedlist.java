@@ -8,7 +8,9 @@ public class linkedlist {
     public Node head;
     public Node tail;
 
+
     // Creating a linked list
+
 
     public void insert(int data){
         Node ne=new Node();
@@ -26,7 +28,9 @@ public class linkedlist {
         tail.next=null;
     }
 
+
     // Adding element at the last of a linked list
+
 
     public void addLast(int data)
     {
@@ -50,7 +54,9 @@ public class linkedlist {
         
     }
 
+
     // Adding element at the beginning of a linked list
+
 
     public void addBegin(int data)
     {
@@ -69,7 +75,8 @@ public class linkedlist {
         }
     }
 
-    //Adding element in between of a linked list after a given data
+
+    //Adding element after the given data in a linked list
 
 
     public void inbetween(int data,int a)
@@ -95,11 +102,22 @@ public class linkedlist {
 
         }
     }
+
+
+    // Adding element after the given index in a linked list
+
+
     public void index(int index,int data)
     {
         Node ne=new Node();
         tail=head;
-        while(tail.next!=null && index-->=0)
+        if(index==0)
+        {
+            ne.next=head;
+            head=ne;
+            head.data=data;
+        }
+        while(index--!=0)
         {
             tail=tail.next;
         }
@@ -111,14 +129,19 @@ public class linkedlist {
             tail.data=data;
             tail.next=temp;
         }
-        else if(tail.)
+        else if(tail.next==null)
         {
             tail.next=ne;
+            tail=ne;
+            tail.data=data;
+            tail.next=null;
 
         }
     }
 
+
     // Displaying a linked list
+
 
     public void display()
     {
@@ -130,29 +153,32 @@ public class linkedlist {
         }System.out.println();
     }
     public static void main(String[] args) {
-        /*head.next=new Node(40);
-        head.next.next=new Node(60);
-        Node temp= head.next.next;
-        head.next.next=new Node(50);
-        head.next.next.next=temp;*/
-        //Node head;
         Scanner sc=new Scanner (System.in);
+        System.out.println("Enter number of nodes in a linked list-");
+        int n=sc.nextInt();
         linkedlist obj=new linkedlist();
-        System.out.println("enter elements of linked list");
-        for(int i=0;i<4;i++)
+        System.out.println("Enter elements of linked list");
+        for(int i=0;i<n;i++)
         {
             obj.insert(sc.nextInt());
         }
         System.out.println("Elements of linked list are-");
         obj.display();
+
         obj.addLast(80);
         System.out.println("Adding element at the last of a linked list-");
         obj.display();
-        obj.addBegin(100);
+
         System.out.println("Adding element at the beginning of a linked list-");
+        obj.addBegin(100);
         obj.display();
+
+        System.out.println("Adding element after the given data in a linked list-");
         obj.inbetween(456, 30);
-        System.out.println("Adding element in between of a linked list-");
+        obj.display();
+        
+        System.out.println("Adding element after the given index in a linked list-");
+        obj.index(4,109);
         obj.display();
     }
 }
