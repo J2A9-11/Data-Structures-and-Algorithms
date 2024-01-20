@@ -1,5 +1,6 @@
-import java.util.Scanner;
+// Basic operations of singly linked list
 
+import java.util.Scanner;
 class Node{
     int data;
     Node next;
@@ -165,8 +166,8 @@ public class linkedlist {
         System.out.println("Elements of linked list are-");
         obj.display();
 
-        obj.addLast(80);
         System.out.println("Adding element at the last of a linked list-");
+        obj.addLast(80);
         obj.display();
 
         System.out.println("Adding element at the beginning of a linked list-");
