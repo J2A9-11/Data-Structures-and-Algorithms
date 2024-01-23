@@ -80,32 +80,36 @@ public class linkedlist {
     //Adding element after the given data in a linked list
 
 
-    public void inbetween(int data,int a)
+    public void inbetween(int da,int a)
     {
         Node ne=new Node();
         if(head==null)
         {
             head=ne;
-            head.data=data;
+            head.data=da;
             tail=head;
         }
         else
         {
             tail=head;
-            while(tail.data!=a)
+            while(tail.data!=a && tail.next!=null)
             tail=tail.next;
+            if (tail.next==null && tail.data!=a)
+            System.out.println("Data not found");
+            else{
             Node temp=tail.next;
             tail.next=ne;
             tail=ne;
-            tail.data=data;
+            tail.data=da;
             tail.next=temp;
+            }
 
 
         }
     }
 
 
-    // Adding element after the given index in a linked list
+    // Adding element after the given position in a linked list
 
 
     public void index(int index,int data)
@@ -114,29 +118,108 @@ public class linkedlist {
         tail=head;
         if(index==0)
         {
-            ne.next=head;
-            head=ne;
-            head.data=data;
-        }
-        while(index--!=0)
-        {
-            tail=tail.next;
-        }
-        if(tail.next!=null)
-        {
             Node temp=tail.next;
             tail.next=ne;
             tail=ne;
             tail.data=data;
             tail.next=temp;
         }
-        else if(tail.next==null)
+        else
         {
-            tail.next=ne;
-            tail=ne;
-            tail.data=data;
-            tail.next=null;
+        if(index>=1)
+        {
+            while(index--!=1 && tail!=null)
+            {
+                tail=tail.next;
+            }
+            if(tail==null)
+            System.out.println("Position not found");
+            else if(tail.next!=null)
+            {
+                Node temp=tail.next;
+                tail.next=ne;
+                tail=ne;
+                tail.data=data;
+                tail.next=temp;
+            }
+            else if(tail.next==null)
+            {
+                tail.next=ne;
+                tail=ne;
+                tail.data=data;
+                tail.next=null;
 
+            }
+        }
+        else 
+        System.out.println("Position not found");
+    }
+
+    }
+
+
+    // Adding a data at the given position in a given linked list
+    
+
+    public void atIndex(int index, int data)
+    {
+        Node ne= new Node();
+        if (index==1)
+        {
+            ne.next=head;
+            head=ne;
+            head.data=data;
+        }
+        else
+        {
+        tail=head;
+        if(index>=2)
+        {        
+            while(index-->2 && tail!=null)
+            {
+                tail=tail.next;
+            }
+            if(tail==null)
+            System.out.println("Position not found");
+            else if (tail.next!=null)
+            {
+                Node temp=tail.next;
+                tail.next=ne;
+                tail=ne;
+                tail.data=data;
+                tail.next=temp;
+            }
+            else if (tail.next==null){
+                tail.next=ne;
+                tail=ne;
+                tail.data=data;
+                tail.next=null;
+            }
+        }
+        else
+        System.out.println("Position not found");
+        }
+
+        
+    }
+
+
+    // Searching the data in linked list
+
+
+    public void search(int da)
+    {
+        if(head==null)
+        System.out.println("Linked list empty");
+        else{
+            int pos=1;
+            tail=head;
+            while(tail.next!=null && tail.data!=da){
+            tail=tail.next;pos=pos+1;}
+            if(tail.next==null && tail.data!=da)
+            System.out.println("Data " +da+" is not present in linked list ");
+            else 
+            System.out.println("Data "+da+ " found at position "+pos+" in linked list");
         }
     }
 
@@ -146,13 +229,14 @@ public class linkedlist {
 
     public void display()
     {
-        Node tail =head;
+        tail=head;
         while(tail!=null)
         {
             System.out.print(tail.data+"\t");
             tail=tail.next;
         }System.out.println();
     }
+
     public static void main(String[] args) {
         Scanner sc=new Scanner (System.in);
         System.out.println("Enter number of nodes in a linked list-");
@@ -175,11 +259,19 @@ public class linkedlist {
         obj.display();
 
         System.out.println("Adding element after the given data in a linked list-");
-        obj.inbetween(456, 30);
+        obj.inbetween(456, 50);
         obj.display();
         
-        System.out.println("Adding element after the given index in a linked list-");
-        obj.index(4,109);
+        System.out.println("Adding element after the given position in a linked list-");
+        obj.index(0,109);
+        obj.display();
+
+        System.out.println("Adding element at the given index in a linked list-");
+        obj.atIndex(2,16);
+        obj.display();
+
+        System.out.println("Searching the data in linked list-");
+        obj.search(50);
         obj.display();
     }
 }
