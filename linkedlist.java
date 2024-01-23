@@ -224,11 +224,59 @@ public class linkedlist {
     }
 
 
+    //Deleting the last node from a linked list
+
+
+    public void delLast()
+    {
+        if(head==null)
+        display();
+        else if(head.next==null){
+        head=null;
+        display();
+        }
+        else
+        {
+            tail=head;
+            while(tail.next.next!=null)
+            {
+                tail=tail.next;
+            }
+            tail.next=null;
+            display();
+        }
+    }
+
+
+    //Deleting the first node from a linked list
+
+
+    public void delFirst()
+    {
+        if(head==null)
+        display();
+        else if(head.next==null)
+        {
+            head=null;
+            display();
+        }
+        else
+        {
+            tail=head;
+            head=tail.next;
+            display();
+
+        }
+    }
+
+
     // Displaying a linked list
 
 
     public void display()
     {
+        if(head==null)
+        System.out.println("Linked list is empty");
         tail=head;
         while(tail!=null)
         {
@@ -250,7 +298,7 @@ public class linkedlist {
         System.out.println("Elements of linked list are-");
         obj.display();
 
-        System.out.println("Adding element at the last of a linked list-");
+        /*System.out.println("Adding element at the last of a linked list-");
         obj.addLast(80);
         obj.display();
 
@@ -272,6 +320,12 @@ public class linkedlist {
 
         System.out.println("Searching the data in linked list-");
         obj.search(50);
-        obj.display();
+        obj.display();*/
+
+        /*System.out.println("Deleting the last node from a linked list-");
+        obj.delLast();*/
+
+        System.out.println("Deleting the first node from a linked list-");
+        obj.delFirst();
     }
 }
