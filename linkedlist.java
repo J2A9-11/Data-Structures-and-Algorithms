@@ -298,7 +298,7 @@ public class linkedlist {
         System.out.println("Elements of linked list are-");
         obj.display();
 
-        /*System.out.println("Adding element at the last of a linked list-");
+        System.out.println("Adding element at the last of a linked list-");
         obj.addLast(80);
         obj.display();
 
@@ -320,10 +320,10 @@ public class linkedlist {
 
         System.out.println("Searching the data in linked list-");
         obj.search(50);
-        obj.display();*/
+        obj.display();
 
-        /*System.out.println("Deleting the last node from a linked list-");
-        obj.delLast();*/
+        System.out.println("Deleting the last node from a linked list-");
+        obj.delLast();
 
         System.out.println("Deleting the first node from a linked list-");
         obj.delFirst();
