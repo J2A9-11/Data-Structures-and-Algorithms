@@ -82,9 +82,9 @@ public class Linked_list {
     public static void main(String args[])
     {
         Student s1=new Student("Govind",20,9.5);
-        Student s2=new Student("Jai",18,8.5);
+        Student s2=new Student("Jai",18,8.0);
         Student s3=new Student("Shubham",21,8.5);
-        Student s4=new Student("Manoj",22,7.5);
+        Student s4=new Student("Manoj",22,9.0);
         Linked_list obj=new Linked_list();
         obj.addFirst(s1);
         obj.addFirst(s2);
